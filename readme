@@ -1,0 +1,23 @@
+# Start an app
+
+pm2 start src/index.js
+
+# Restart the previous app launched
+
+pm2 restart src/index.js
+
+# Stop the app
+
+pm2 stop src/index.js
+
+# Remove the app from the process list
+
+pm2 delete src/index.js
+
+# Kill pm2
+
+pm2 kill
+
+# Show list pm2
+
+pm2 ls

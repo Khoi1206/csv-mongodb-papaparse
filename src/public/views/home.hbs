@@ -1,0 +1,119 @@
+<div class='container'>
+  <div>
+    <a href='#'>
+      <img src='/img/logo_honeynet.png' alt='Honeynet Logo' />
+    </a>
+  </div>
+  <div class='note'>
+    <h2>This page is running with NodeJS</h2>
+  </div>
+</div>
+<div class='csv-upload-form'>
+  <form action='/upload' method='post' enctype='multipart/form-data'>
+    <input type='file' id='file' name='file' value='file_upload' accept='.csv' class='small-btn' />
+    <button class='small-btn'>Upload</button>
+  </form>
+</div>
+
+<div class='container'>
+  <div class='card shadow mb-4 mt-4'>
+    <div class='card-header d-sm-flex align-items-center justify-content-between'>
+      <h6 class='font-weight-bold text-primary'>Devices</h6>
+      <form action='/delete' method='post'>
+        <button type='submit' class='btn btn-danger mt-2'>Delete</button>
+      </form>
+    </div>
+
+    <div class='card-body'>
+      <div class='table-responsive'>
+        <table class='table table-bordered table-hover table-sm' width='100%' cellspacing='0'>
+          <thead class='text-center'>
+            <tr>
+              <th scope='col'>#</th>
+              <th scope='col'>deviceId</th>
+              <th scope='col'>resolution</th>
+              <th scope='col'>frame_rate</th>
+              <th scope='col'>lens_type</th>
+              <th scope='col'>lens_focal_length</th>
+              <th scope='col'>iris_type</th>
+              <th scope='col'>iris_range</th>
+              <th scope='col'>day_night_mode</th>
+              <th scope='col'>min_illumination</th>
+              <th scope='col'>wdr</th>
+              <th scope='col'>noise_reduction</th>
+              <th scope='col'>backlight_compensation</th>
+              <th scope='col'>image_flip</th>
+              <th scope='col'>image_rotation</th>
+              <th scope='col'>device_type</th>
+              <th scope='col'>sensor_type</th>
+              <th scope='col'>power_source</th>
+              <th scope='col'>operating_temperature</th>
+              <th scope='col'>storage_temperature</th>
+              <th scope='col'>weight</th>
+              <th scope='col'>audio_input</th>
+              <th scope='col'>audio_output</th>
+              <th scope='col'>power_over_ethernet</th>
+              <th scope='col'>wireless</th>
+              <th scope='col'>storage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each devices}}
+              <tr>
+                <th scope='row' class='text-center'>{{pageNumber currentPage @index}}</th>
+                <td>{{this.deviceId}} {{itemsPerPage}}</td>
+                <td>{{this.resolution}}</td>
+                <td>{{this.frame_rate}}</td>
+                <td>{{this.lens_type}}</td>
+                <td>{{this.lens_focal_length}}</td>
+                <td>{{this.iris_type}}</td>
+                <td>{{this.iris_range}}</td>
+                <td>{{this.day_night_mode}}</td>
+                <td>{{this.min_illumination}}</td>
+                <td>{{this.wdr}}</td>
+                <td>{{this.noise_reduction}}</td>
+                <td>{{this.backlight_compensation}}</td>
+                <td>{{this.image_flip}}</td>
+                <td>{{this.image_rotation}}</td>
+                <td>{{this.device_type}}</td>
+                <td>{{this.sensor_type}}</td>
+                <td>{{this.power_source}}</td>
+                <td>{{this.operating_temperature}}</td>
+                <td>{{this.storage_temperature}}</td>
+                <td>{{this.weight}}</td>
+                <td>{{this.audio_input}}</td>
+                <td>{{this.audio_output}}</td>
+                <td>{{this.power_over_ethernet}}</td>
+                <td>{{this.wireless}}</td>
+                <td>{{this.storage}}</td>
+              </tr>
+
+            {{else}}
+              <tr>
+                <td colspan='10' class='text-center'>
+                  No Data.
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <nav aria-label='Page navigation example'>
+          <ul class='pagination justify-content-end'>
+            <li class='page-item'>
+              <a class='page-link' href='?page=1&limit={{itemsPerPage}}' aria-label='Previous'>
+                <span aria-hidden='true'>&laquo;</span>
+              </a>
+            </li>
+            <li class='page-item'><a class='page-link' href='?page={{prevPage}}&limit={{itemsPerPage}}'>Previous</a></li>
+            <li class='page-item'><a class='page-link' href='?page={{nextPage}}&limit={{itemsPerPage}}'>Next</a></li>
+            <li class='page-item'>
+              <a class='page-link' href='?page={{totalPages}}&limit={{itemsPerPage}}' aria-label='Next'>
+                <span aria-hidden='true'>&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

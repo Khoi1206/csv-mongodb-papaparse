@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  border-bottom: 2px solid black;
+  margin: 20px;
+}
+
+.container > div {
+  margin: 10px;
+}
+
+.note {
+  width: 1100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  margin: 30px;
+}
+
+.csv-upload-form {
+  margin: 10px 100px;
+}
+
+.small-btn {
+  padding: 5px 10px; /* Adjust padding for a smaller button */
+  font-size: 14px; /* Adjust font size for a smaller button */
+  border: 1px solid #ccc; /* Add a thin border */
+  border-radius: 3px; /* Add rounded corners */
+  cursor: pointer; /* Indicate interactivity */
+}
+
+/* Upload button hover effect (optional) */
+.csv-upload-form button[type="submit"] {
+  background-color: #4CAF50; /* Green color */
+  color: white;
+  padding: 7px 20px;
+  border: none;
+  border-radius: 5px; /* Consistent border radius */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.csv-upload-form button[type="submit"]:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
